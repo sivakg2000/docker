@@ -1,7 +1,7 @@
 <?php
-// Args: 0 => makedb.php, 1 => "$JOOMLA_DB_HOST", 2 => "$JOOMLA_DB_USER", 3 => "$JOOMLA_DB_PASSWORD", 4 => "$JOOMLA_DB_NAME"
+// Args: 0 => makedb.php, 1 => "$WORDPRESS_DB_HOST", 2 => "$WORDPRESS_DB_USER", 3 => "$WORDPRESS_DB_PASSWORD", 4 => "$WORDPRESS_DB_NAME"
 $stderr = fopen('php://stderr', 'w');
-fwrite($stderr, "\nEnsuring Joomla database is present\n");
+fwrite($stderr, "\nEnsuring Wordpress database is present\n");
 
 if (strpos($argv[1], ':') !== false)
 {
