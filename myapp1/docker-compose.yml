@@ -1,0 +1,27 @@
+version: '3.0'
+services: 
+    myapp1-es-7.8.0:
+        image: elasticsearch:7.8.0
+        ports: 
+            - "9200:9200"
+            - "9300:9300"
+        environment: 
+            - "discovery.type=single-node"
+            - "node.name=myapp1-es-01"
+            - "cluster.name=myapp1-es-7.8.0"
+        networks: 
+            - "myapp1"
+    myapp1-kibana-7.8.0:
+        image: docker.elastic.co/kibana/kibana:7.8.0
+        ports: 
+            - "5601:5601"
+        networks: 
+            - "myapp1"
+        links: 
+            - "myapp1-es-7.8.0:elasticsearch"
+        depends_on: 
+            - "myapp1-es-7.8.0"
+
+networks:
+    myapp1:
+        driver: "bridge"
