@@ -1,10 +1,10 @@
-# docker
-<!-- Output copied to clipboard! -->
+# Docker
+ <!-- Output copied to clipboard! -->
 
 <!-----
 NEW: Check the "Suppress top comment" option to remove this info from the output.
 
-Conversion time: 0.63 seconds.
+Conversion time: 0.879 seconds.
 
 
 Using this Markdown file:
@@ -17,15 +17,15 @@ Using this Markdown file:
 Conversion notes:
 
 * Docs to Markdown version 1.0β29
-* Wed Jul 08 2020 05:31:52 GMT-0700 (PDT)
+* Fri Jul 10 2020 05:48:52 GMT-0700 (PDT)
 * Source doc: DockerFile Syntax
 * Tables are currently converted to HTML tables.
 ----->
 
 
-DockerFile Syntax
+## DockerFile Syntax
 
-	Dockerfile syntax consists of two kind of mail line blocks
+Dockerfile syntax consists of two kind of main line blocks
 
 
 
@@ -36,8 +36,7 @@ Ex:
 
 RUN echo “Welcome Docker”
 
-DockerFile Commands
-
+## DockerFile Commands
 
 
 *   FROM
@@ -63,15 +62,15 @@ DockerFile Commands
 *   VOLUME
     *   VOLUME [“/shared_dir”]
 
-COPY vs ADD
+### COPY vs ADD
 
-	Both commands will be used to copy files from a specific location  into a docker image. COPY takes source and destination. It only lets you copy in a local file or directory from your host into the docker image itself. But ADD lets you do that too. And also support 2 other sources. It accepts source as URL instead of file/directory. Secondly you can extract a tar file from the source directory into the destination which is docker image. 
+Both commands will be used to copy files from a specific location  into a docker image. COPY takes source and destination. It only lets you copy in a local file or directory from your host into the docker image itself. But ADD lets you do that too. And also support 2 other sources. It accepts source as URL instead of file/directory. Secondly you can extract a tar file from the source directory into the destination which is docker image. 
 
-RUN vs CMD vs ENTRYPOINT
+### RUN vs CMD vs ENTRYPOINT
 
-Dfsdf
+To be added.
 
-Most Used Docker Commands
+## Most Used Docker Commands
 
 
 <table>
@@ -133,3 +132,44 @@ Most Used Docker Commands
   </tr>
 </table>
 
+
+## Docker Swarm
+
+Docker native orchestrations tool for managing the docker cluster, node, container, high availability. 
+
+## Docker Swarm Commands
+
+
+
+*   docker swarm init
+    *   docker swarm init --advertise-addr &lt;ip-of-manager-node>
+*   docker join --token &lt;token> &lt;ip-of-manager-node>
+*   docker service ls
+*   docker service ps &lt;name>
+*   docker service create &lt;name> &lt;image-name> 
+    *   docker service create --name “my-app” test
+        *   --mode global ( all nodes ) 
+        *   --mode replicated ( default )
+        *   --replicas 5 
+*   docker service rm &lt;name>
+*   docker service scale &lt;name>=5
+*   docker node ls
+*   docker node ps
+*   docker node rm &lt;id>
+*   docker node update --availability drain &lt;manager-node-name>
+*   docker node update --availability active &lt;manager-node-name>
+
+## Docker Networking
+
+Docker Networking is a way to connect all containers to each other in a docker environment. 
+
+## Network Drivers
+
+
+*   Bridge ( default )
+*   Host
+*   None
+*   Overlay
+*   Macvlan
+
+References
